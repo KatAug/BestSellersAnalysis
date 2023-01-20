@@ -36,7 +36,15 @@ def example_analysis(book_list):
 
 def analysis_one(book_list):
     print("Analysis of which book had the lowest number of reviews in 2018")
-
+    # Find all books from 2016
+    # Use a Lambda filter function to find books who have a year of 2018
+    # Converting to a list, and saving as variable books_2018
+    books_2018 = list(filter(lambda book: book['year'] == 2018, book_list))
+    #Calculate the lowest number of reviews, saving that book as lowest_num_reviews
+    #Using min(), with Lambda function
+    lowest_num_reviews = min(books_2018, key=lambda book: book['number_of_reviews'])
+    #Print that book's name to terminal 
+    print(f"The book that had the lowest number of reviews in 2018 is {lowest_num_reviews['name']} with {lowest_num_reviews['number_of_reviews']} reviews!")
 
 def analysis_two(book_list):
     print("Analysis of which genre (fiction or non-fiction) has appeared the most in the top 50's list")
