@@ -61,7 +61,12 @@ def analysis_two(book_list):
 
 def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
-    
+    #Which book has appeared the most in the top 50's list?
+    #How many times has it appeared?
+    #Which books appeared mulitple times in the top 50 list, saving as which_books_appear_multiple_times
+    which_books_appear_multiple_times = len(list(filter(lambda book: book ['name'], book_list)))
+    print(which_books_appear_multiple_times)
+    #most_appeared_book = len(list(filter(lambda book: book['name'], which_books_appear_multiple_times)))
 
 # BONUS USER STORIES:
 
