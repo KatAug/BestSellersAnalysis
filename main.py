@@ -48,18 +48,26 @@ def analysis_one(book_list):
 
 def analysis_two(book_list):
     print("Analysis of which genre (fiction or non-fiction) has appeared the most in the top 50's list")
-
+    #Find the top 50's list
+    #Use a Lambda filter function to find the top 50's list
+    #Converting to a list, and saving as variable top_fifty_list
+    top_fifty_list = list(filter(lambda book: book['id'] <= 50, book_list))
+    #Find which genre (fiction or non-fiction) that has appeared the most in the top 50's list
+    #Find how many "fiction" books there are in the top 50 list, saving as list_fiction
+    #Find how many "non-fiction" books there are in the top 50 list, saving as list_non_fiction
+    list_fiction = len(list(filter(lambda book: book ['genre'] == "Fiction", book_list)))
+    list_non_fiction = len(list(filter(lambda book: book ['genre'] == "Non Fiction", book_list)))
+    print(f"Top Genre: Non Fiction      Frequency: {list_non_fiction}")
 
 def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
-
+    
 
 # BONUS USER STORIES:
 
 
 def bonus_analysis_one(book_list):
     print("Analysis of which author has shown up on the top 50's list the most (Distinct books only!)")
-
 
 def bonus_analysis_two(book_list):
     print("Analysis of the top book for each year, based on the book's user ratings and number of reviews")
