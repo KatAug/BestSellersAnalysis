@@ -30,8 +30,7 @@ def example_analysis(book_list):
     # Using max(), with Lambda function
     highest_cost_book = max(books_2016, key=lambda book: book['price'])
     # Print that book's name & price to terminal
-    print(
-        f"The most expensive book in 2016 was {highest_cost_book['name']} with a price of {highest_cost_book['price']}")
+    print(f"The most expensive book in 2016 was {highest_cost_book['name']} with a price of ${highest_cost_book['price']}")
 
 
 def analysis_one(book_list):
@@ -63,10 +62,25 @@ def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
     #Which book has appeared the most in the top 50's list?
     #How many times has it appeared?
-    #Which books appeared mulitple times in the top 50 list, saving as which_books_appear_multiple_times
-    which_books_appear_multiple_times = len(list(filter(lambda book: book ['name'], book_list)))
-    print(which_books_appear_multiple_times)
-    #most_appeared_book = len(list(filter(lambda book: book['name'], which_books_appear_multiple_times)))
+    #Create a list of all the titles that appeared the most in the top 50's list, saving it as list_of_book_names 
+    list_of_book_names = [book['name'] for book in book_list]
+    #print(list_of_book_names)
+    #create some form of loop to iterate through the set(list_of_book_names)
+    #[print(list_of_book_names.count(book), book) for book in set(list_of_book_names)]
+    #Set up a Lambda function in order to count each occurrence
+    most_pop_book_name = ""
+    num_of_occurrences = 0
+    for book in set(list_of_book_names):
+        matching_books = list(filter(lambda name: name == book, list_of_book_names))
+        current_books_num_occurrences = len(matching_books)
+        if current_books_num_occurrences >= num_of_occurrences:
+            most_pop_book_name = book
+            num_of_occurrences = len(matching_books)
+
+    print(f"The book that appeared the most in the top 50's list is: {most_pop_book_name} with {num_of_occurrences} appearances.")
+
+     
+
 
 # BONUS USER STORIES:
 
